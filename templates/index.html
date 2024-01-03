@@ -1,45 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="flex justify-center items-center mt-5 min-h-screen">
+  </head>
+  <body class="flex justify-center items-center mt-5 min-h-screen bg-gray-100">
+    <div class="flex flex-col gap-5 shadow-lg p-10 bg-white rounded">
+      <h1 class="text-red-500 text-3xl font-semibold">
+        House price prediction
+      </h1>
+
+      <form action="/" method="POST" class="flex flex-col gap-5">
+        <div class="flex flex-col gap-2">
+          <label for="bedrooms"> Bed Rooms:</label>
+          <span id="bedrooms"> </span>
+          <input
+            required
+            type="range"
+            id="formBedrooms"
+            value="0"
+            min="1"
+            max="50"
+            class="border-2 border-solid p-1 rounded"
+            placeholder="enter number of bedrooms "
+            name="bedrooms"
+          />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="bathrooms"> Bed Rooms:</label>
+          <span id="bathrooms"> </span>
+          <input
+            required
+            type="range"
+            id="formbathrooms"
+            value="0"
+            min="1"
+            max="50"
+            class="border-2 border-solid p-1 rounded"
+            placeholder="enter number of bedrooms "
+            name="bathrooms"
+          />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="sqf"> square foot:</label>
+          <span id="sqf"> </span>
+          <input
+            required
+            type="range"
+            id="formsqf"
+            value="0"
+            min="1"
+            max="50"
+            class="border-2 border-solid p-1 rounded"
+            placeholder="enter number of bedrooms "
+            name="sqf"
+          />
+        </div>
 
 
-    <div class=" flex flex-col gap-5">
+        <div>
+            <label>location</label><br>
+            <select name="location">
+                {% for i in location_mapping %}
+                <option value="{{location_mapping[i]}}">{{i}}</option>
+                {% endfor %}
+            </select>
+        </div>
 
+        <div>
+            <label>direction</label><br>
+            <select name="direction">
+                {% for i in direction_mapping %}
+                <option value="{{direction_mapping[i]}}">{{i}}</option>
+                {% endfor %}
+            </select>
+        </div>
 
-        <h1 class="text-red-500 text-3xl font-semibold">
-            House price prediction
-        </h1>
-        
-        <form action="/" method="POST" class="flex flex-col gap-5">
+        <div>
+            <label>status</label><br>
+            <select name="status">
+                {% for i in status_mapping %}
+                <option value="{{status_mapping[i]}}">{{i}}</option>
+                {% endfor %}
+            </select>
+        </div>
 
-            <div class="flex flex-col gap-2 ">
-                <label for="bedrooms"> Bed Rooms:</label>
-                <span id="bedrooms"> </span>
-                <input required type="range" id="formBedrooms" value="0"  min="1" max="50" class="border-2 border-solid p-1 rounded" placeholder="enter number of bedrooms " name="bedrooms" />
-            </div>
-            <div>
-                <button type="submit" class="border-2 bg-blue-500 rounded-full py-2 w-full px-2 hover:bg-blue-700 text-white font-semibold"> Submit</button>
-            </div>
-        </form>
+        <div>
+            <label>property type</label><br>
+            <select name="property type">
+                {% for i in property_type_mapping %}
+                <option value="{{property_type_mapping[i]}}">{{i}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="border-2 bg-blue-500 rounded-full py-2 w-full px-2 hover:bg-blue-700 text-white font-semibold"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
-   
+
     <script>
-        document.addEventListener('DOMContentLoaded' , ()=>{
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("#bedrooms").innerHTML =
+          document.querySelector("#formBedrooms").value || "0";
+        document
+          .querySelector("#formBedrooms")
+          .addEventListener("change", () => {
+            document.querySelector("#bedrooms").innerHTML =
+              document.querySelector("#formBedrooms").value;
+          });
+        document.querySelector("#bathrooms").innerHTML =
+          document.querySelector("#formbathrooms").value || "0";
 
-            document.querySelector('#bedrooms').innerHTML ='0'
-        document.querySelector('#formBedrooms').addEventListener('change' , () =>{
-            document.querySelector('#bedrooms').innerHTML =  document.querySelector('#formBedrooms').value
+        document
+          .querySelector("#formbathrooms")
+          .addEventListener("change", () => {
+            document.querySelector("#bathrooms").innerHTML =
+              document.querySelector("#formbathrooms").value;
+          });
 
+          document.querySelector("#sqf").innerHTML =
+        document.querySelector("#formsqf").value || "0";
 
-        })
-        })
-      
+      document.querySelector("#formsqf").addEventListener("change", () => {
+        document.querySelector("#sqf").innerHTML =
+          document.querySelector("#formsqf").value;
+      });
+      });
+
+     
+
+   
     </script>
-</body>
+  </body>
 </html>
