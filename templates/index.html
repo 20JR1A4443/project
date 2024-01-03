@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center mt-5 min-h-screen">
+
+
+    <div class=" flex flex-col gap-5">
+
+
+        <h1 class="text-red-500 text-3xl font-semibold">
+            House price prediction
+        </h1>
+        
+        <form action="" class="flex flex-col gap-5">
+
+            <div class="flex flex-col gap-2 ">
+                <label for="bedrooms"> Bed Rooms:</label>
+                <span id="bedrooms"> </span>
+                <input required type="range" id="formBedrooms" value="0"  min="1" max="50" class="border-2 border-solid p-1 rounded" placeholder="enter number of bedrooms " name="bedrooms" />
+            </div>
+            <div>
+                <button type="submit" class="border-2 bg-blue-500 rounded-full py-2 w-full px-2 hover:bg-blue-700 text-white font-semibold"> Submit</button>
+            </div>
+        </form>
+    </div>
+   
+    <script>
+        document.addEventListener('DOMContentLoaded' , ()=>{
+
+            document.querySelector('#bedrooms').innerHTML ='0'
+        document.querySelector('#formBedrooms').addEventListener('change' , () =>{
+            document.querySelector('#bedrooms').innerHTML =  document.querySelector('#formBedrooms').value
+
+
+        })
+        })
+      
+    </script>
+</body>
+</html>
