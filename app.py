@@ -22,6 +22,13 @@ def index():
         input_array = np.array([[
             bedrooms,bathrooms,location,sqf,status,direction,property_type
         ]])
+
+        t_array = scaler.transform(input_array)
+        prediction = model.predict(t_array)[0]
+        return render_template('index.html',location_mapping=location_mapping,
+                               status_mapping=status_mapping,
+                               direction_mapping=direction_mapping,
+                               property_type_mapping=property_type_mapping ,prediction=prediction)
     else:
         return render_template('index.html',location_mapping=location_mapping,
                                status_mapping=status_mapping,
