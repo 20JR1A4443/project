@@ -41,5 +41,6 @@ def secound():
 @app.route('/<name>/')
 def Ilove(name):
     return f'I love you {name}'
-# if __name__ == '__main__':
-#     app.run(use_reloader=True, debug=True)
+if __name__ == '__main__':
+    # app.run(use_reloader=True, debug=True)
+    app.run()
