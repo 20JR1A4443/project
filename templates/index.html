@@ -62,36 +62,36 @@
         </div>
 
 
-        <div>
-            <label>location</label><br>
-            <select name="location">
+        <div class="flex flex-col gap-1">
+            <label>location</label>
+            <select name="location" class="p-1 rounded ">
                 {% for i in location_mapping %}
                 <option value="{{location_mapping[i]}}">{{i}}</option>
                 {% endfor %}
             </select>
         </div>
 
-        <div>
-            <label>direction</label><br>
-            <select name="direction">
+        <div class="flex flex-col gap-1">
+            <label>direction</label>
+            <select name="direction" class="p-1 rounded ">
                 {% for i in direction_mapping %}
-                <option value="{{direction_mapping[i]}}">{{i}}</option>
+                <option   value="{{direction_mapping[i]}}">{{i}}</option>
                 {% endfor %}
             </select>
         </div>
 
-        <div>
-            <label>status</label><br>
-            <select name="status">
+        <div class="flex flex-col gap-1">
+            <label>status</label>
+            <select name="status" class="p-1 rounded ">
                 {% for i in status_mapping %}
-                <option value="{{status_mapping[i]}}">{{i}}</option>
+                <option  value="{{status_mapping[i]}}">{{i}}</option>
                 {% endfor %}
             </select>
         </div>
 
-        <div>
-            <label>property type</label><br>
-            <select name="property type">
+        <div class="flex flex-col gap-1">
+            <label>property type</label>
+            <select name="property type" class="p-1 rounded ">
                 {% for i in property_type_mapping %}
                 <option value="{{property_type_mapping[i]}}">{{i}}</option>
                 {% endfor %}
